@@ -1,8 +1,18 @@
 class Solution:
-    nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
-
     def maxSubArray(self, nums):
-        # find out the subarray
-        # subarray always start with a positive number
+        # initialize 0 and first val in array
+        curr_sub = 0
+        max_sub = nums[0]
 
-        # return sum of the found subarray
+        # iterate thru nums
+        for x in nums:
+            # if running sum less than 0, reset to 0
+            if curr_sub < 0:
+                curr_sub = 0
+            # sum
+            curr_sub += x
+
+            # if running sum > max sum, take higher val
+            max_sub = max(curr_sub, max_sub)
+
+        return max_sub
