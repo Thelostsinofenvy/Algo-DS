@@ -1,5 +1,6 @@
 array = [2, 5, 1, 2, 3, 5, 1, 2, 4]
 mylist = []
+mydict = {}
 # should return 2 as it is the first recurring character
 
 # brute force
@@ -23,4 +24,13 @@ def alternative(array):
     return mylist[0]
 
 
-print(alternative(array))
+def usinghash(array):
+    for i in range(0, len(array)):
+        if array[i] in mydict:
+            return array[i]
+        else:
+            mydict[array[i]] = i
+    return mydict
+
+
+print(usinghash(array))
