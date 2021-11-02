@@ -23,6 +23,8 @@ def alternative(array):
             mylist.append(array[i])
     return mylist[0]
 
+# using hashmaps
+
 
 def usinghash(array):
     for i in range(0, len(array)):
