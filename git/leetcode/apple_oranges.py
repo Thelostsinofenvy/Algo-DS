@@ -32,6 +32,3 @@ def countApplesAndOranges(s, t, a, b, apples, oranges):
 
     print(count_apple)
     print(count_orange)
-
-
-print(countApplesAndOranges(s, t, a, b, apples, oranges))
