@@ -1,27 +1,32 @@
-print("Type 'encode' to encrypt , type decode to decrypt:")
-ans = input()
-print("type your message:")
-s = input()
-print("Type the shift number:")
-shift = input()
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+            'v', 'w', 'x', 'y', 'z']
+
+direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+text = input("Type your message:\n").lower()
+shift = int(input("Type the shift number:\n"))
 
 
-def cipher():
-    if ans.lower() == "encode":
-        result = []
-        for i in s:
-            char = chr(ord(i) + int(shift))
-            result.append(char)
-        print(*(result))
-    else:
-        print("Please type encode or decode correctly!")
+def encode(text, shift):
+    encrypted_word = ''
+    for i in text:
+        position = alphabet.index(i) + shift
+        if position > 25:
+            position -= 26
+            encrypted_word += alphabet[position]
+        print(encrypted_word)
 
 
-cipher()
+def decode(text, shift):
+    decrypted_word = ''
+    for i in text:
+        position = alphabet.index(i) - shift
+        if position < 0:
+            position += 26
+            decrypted_word += alphabet[position]
+        print(decrypted_word)
 
-print("type 'yes' if you want to go again. otherwise type 'no'")
-repeat = input()
-if repeat == 'yes':
-    cipher()
-else:
-    print("see ya")
+
+if direction == "encode":
+    encode(text, shift)
+elif direction == "decode":
+    decode(text, shift)
