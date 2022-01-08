@@ -16,12 +16,22 @@
 # Kevin's vowel beginning word = ANA
 # Here, ANA occurs twice in BANANA. Hence, Kevin will get 2 Points.
 
+s = "BANANAeiou"
+
 
 def minion_game(s):
     # your code goes here
-    vowels = 'AEIOU'
+    charlist = []
+    for i in s:
+        charlist.append(i.lower())
+    print(charlist)
+
+    vowels = []
+    for vow in charlist:
+        if vow == 'a' or vow == 'e' or vow == 'i' or vow == 'o' or vow == 'u':
+            vowels.append(vow)
+    non_duplicate = list(set(vowels))
+    print(non_duplicate)
 
 
-if __name__ == '__main__':
-    s = input()
-    minion_game(s)
+minion_game(s)
